@@ -25,7 +25,11 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+<style type="text/css">
+    body{
+        
+    }
+</style>
 <div class="wrap">
     <?php
     NavBar::begin([
@@ -36,18 +40,37 @@ AppAsset::register($this);
         ],
     ]);
     echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-left'],
+        'items' => [
+            [
+                'label' => 'Gerenciar',
+                'items' => [
+                     ['label' => 'Usuários', 'url' => ['/usuario/index']],
+                     //'<li class="divider"></li>',
+                    // ['label' => 'Locais', 'url' => ['/local/index']],
+                   //  ['label' => 'Recursos', 'url' => ['/recurso/index']],
+                     ['label' => 'Veiculos', 'url' => ['/veiculos/index']],
+                     ['label' => 'Marcas', 'url' => ['/marcas/index']],
+                     ['label' => 'Funcionários', 'url' => ['/funcionarios/index']],
+                     ['label' => 'Locatários', 'url' => ['locatarios/index']]
+                ],
+            ],
+        ],
+    ]);
+
+    echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Sobre', 'url' => ['/site/about']],
+            ['label' => 'Contato', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => 'Entrar', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    'Logout (' . Yii::$app->user->identity->nome . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()

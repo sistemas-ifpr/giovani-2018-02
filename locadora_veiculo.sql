@@ -1,0 +1,59 @@
+CREATE DATABASE locadora_veiculo;
+
+USE locadora_veiculo;
+
+CREATE TABLE IF NOT EXISTS usuarios(
+
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome  VARCHAR(100) NOT NULL,
+    email VARCHAR (100) NOT NULL,
+    senha VARCHAR (100) NOT NULL
+	
+)engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS funcionarios(
+
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(100) NOT NULL UNIQUE,
+    telefone VARCHAR(100) NOT NULL,
+    celular VARCHAR(100) NOT NULL,
+    endereco VARCHAR(100) NOT NULL,
+    dataAdm DATE NOT NULL,
+    dataDem VARCHAR(100) DEFAULT ''
+	
+)engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS locatarios(
+
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(100) NOT NULL UNIQUE,
+    telefone VARCHAR(100) NOT NULL,
+    celular VARCHAR(100) NOT NULL,
+    endereco VARCHAR(100) NOT NULL,
+    numCarteiraHab INT NOT NULL 
+	
+)engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS marcas(
+
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL
+    
+)engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS veiculos(
+
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    placa  VARCHAR(100) NOT NULL,
+    marca VARCHAR (100) NOT NULL,
+    modelo VARCHAR (100) NOT NULL,
+    anoFab VARCHAR (100) NOT NULL,
+    valorDiaria VARCHAR (100) NOT NULL
+	
+)engine=InnoDB;
+
+
+select * from usuarios;
+
