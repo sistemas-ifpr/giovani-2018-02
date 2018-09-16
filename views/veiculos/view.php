@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'placa',
             'marca',
             'modelo',
+            'anoModelo',
             'anoFab',
             'valorDiaria',
         ],

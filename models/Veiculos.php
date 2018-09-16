@@ -11,6 +11,7 @@ use Yii;
  * @property string $placa
  * @property string $marca
  * @property string $modelo
+ * @property string $anoModelo
  * @property string $anoFab
  * @property string $valorDiaria
  */
@@ -30,8 +31,8 @@ class Veiculos extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['placa', 'marca', 'modelo', 'anoFab', 'valorDiaria'], 'required'],
-            [['placa', 'marca', 'modelo', 'anoFab', 'valorDiaria'], 'string', 'max' => 100],
+            [['placa', 'marca', 'modelo', 'anoModelo', 'anoFab', 'valorDiaria'], 'required'],
+            [['placa', 'marca', 'modelo', 'anoModelo', 'anoFab', 'valorDiaria'], 'string', 'max' => 100],
         ];
     }
 
@@ -45,6 +46,7 @@ class Veiculos extends \yii\db\ActiveRecord
             'placa' => 'Placa',
             'marca' => 'Marca',
             'modelo' => 'Modelo',
+            'anoModelo' => 'Ano Modelo',
             'anoFab' => 'Ano Fab',
             'valorDiaria' => 'Valor Diaria',
         ];

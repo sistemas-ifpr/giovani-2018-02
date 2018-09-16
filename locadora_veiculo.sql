@@ -49,11 +49,11 @@ CREATE TABLE IF NOT EXISTS veiculos(
     placa  VARCHAR(100) NOT NULL,
     marca VARCHAR (100) NOT NULL,
     modelo VARCHAR (100) NOT NULL,
+    anoModelo VARCHAR (100) NOT NULL,
     anoFab VARCHAR (100) NOT NULL,
     valorDiaria VARCHAR (100) NOT NULL
 	
 )engine=InnoDB;
-
 
 select * from usuarios;
 

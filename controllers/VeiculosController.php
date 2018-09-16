@@ -36,7 +36,7 @@ class VeiculosController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Veiculos::find(),
+            'query' => Veiculos::find()->orderBy('modelo'),
         ]);
 
         return $this->render('index', [

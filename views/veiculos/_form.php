@@ -18,12 +18,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'modelo')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'anoModelo')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'anoFab')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'valorDiaria')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

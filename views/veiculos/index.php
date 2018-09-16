@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Cadastrar Veiculos', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Veiculos', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -22,12 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'placa',
             'marca',
             'modelo',
-            'anoFab',
-            //'valorDiaria',
+            'anoModelo',
+            //'anoFab',
+            'valorDiaria',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
