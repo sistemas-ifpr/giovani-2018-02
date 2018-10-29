@@ -1,15 +1,18 @@
 <?php
- namespace app\controllers;
- use Yii;
-use app\models\Usuario;
+
+namespace app\controllers;
+
+use Yii;
+use app\models\Veiculo;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
- /**
- * UsuarioController implements the CRUD actions for Usuario model.
+
+/**
+ * VeiculoController implements the CRUD actions for Veiculo model.
  */
-class UsuarioController extends Controller
+class VeiculoController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -25,21 +28,24 @@ class UsuarioController extends Controller
             ],
         ];
     }
-     /**
-     * Lists all Usuario models.
+
+    /**
+     * Lists all Veiculo models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Usuario::find(),
+            'query' => Veiculo::find()->orderBy('modelo'),
         ]);
-         return $this->render('index', [
+
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
     }
-     /**
-     * Displays a single Usuario model.
+
+    /**
+     * Displays a single Veiculo model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -50,23 +56,27 @@ class UsuarioController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-     /**
-     * Creates a new Usuario model.
+
+    /**
+     * Creates a new Veiculo model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Usuario();
-         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $model = new Veiculo();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
-         return $this->render('create', [
+
+        return $this->render('create', [
             'model' => $model,
         ]);
     }
-     /**
-     * Updates an existing Usuario model.
+
+    /**
+     * Updates an existing Veiculo model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -75,15 +85,18 @@ class UsuarioController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
-         return $this->render('update', [
+
+        return $this->render('update', [
             'model' => $model,
         ]);
     }
-     /**
-     * Deletes an existing Usuario model.
+
+    /**
+     * Deletes an existing Veiculo model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -92,20 +105,23 @@ class UsuarioController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-         return $this->redirect(['index']);
+
+        return $this->redirect(['index']);
     }
-     /**
-     * Finds the Usuario model based on its primary key value.
+
+    /**
+     * Finds the Veiculo model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Usuario the loaded model
+     * @return Veiculo the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Usuario::findOne($id)) !== null) {
+        if (($model = Veiculo::findOne($id)) !== null) {
             return $model;
         }
-         throw new NotFoundHttpException('The requested page does not exist.');
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

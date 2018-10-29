@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Usuario */
+/* @var $model app\models\Reserva */
 
-$this->title = 'Cadastrar Usuario';
-$this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
+$this->title = 'Nova Reserva';
+$this->params['breadcrumbs'][] = ['label' => 'Reservas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="usuario-create">
+<div class="reserva-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
