@@ -2,6 +2,8 @@ CREATE DATABASE locadora_veiculo;
 
 USE locadora_veiculo;
 
+SET default_storage_engine=INNODB;
+
 CREATE TABLE IF NOT EXISTS usuario(
 
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -65,11 +67,6 @@ CREATE TABLE IF NOT EXISTS veiculo(
 	
 )engine=InnoDB;
 
-select veiculo.modelo from reserva  join veiculo 
-on reserva.veiculo = veiculo.id;
-
-select reserva.*, veiculo.modelo from reserva inner join veiculo 
-on reserva.veiculo = veiculo.id;
 
 CREATE TABLE IF NOT EXISTS reserva(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -83,8 +80,6 @@ CREATE TABLE IF NOT EXISTS reserva(
 
 )ENGINE = InnoDB;
 
-drop table reserva;
-
 CREATE TABLE IF NOT EXISTS emprestimo(
 	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	veiculo INT NOT NULL,
@@ -97,8 +92,16 @@ CREATE TABLE IF NOT EXISTS emprestimo(
     FOREIGN KEY (cliente) REFERENCES locatario (id),
     FOREIGN KEY (funcionario) REFERENCES funcionario (id),
 	FOREIGN KEY (veiculo) REFERENCES veiculo (id)
-);
-drop table emprestimo;
-SET default_storage_engine=INNODB;
+)ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS devolucao(
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    dataHora DATETIME NOT NULL,
+    emprestimo INT NOT NULL,
+    FOREIGN KEY (emprestimo) REFERENCES emprestimo (id)
+
+)ENGINE = InnoDB;
+
 show engines;
 

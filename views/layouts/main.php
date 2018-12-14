@@ -55,6 +55,7 @@ AppAsset::register($this);
                      ['label' => 'Marcas', 'url' => ['/marca/index']],                                         
                      ['label' => 'Reservas', 'url' => ['reserva/index']],
                      ['label' => 'Empréstimos', 'url' => ['emprestimo/index']],
+                     ['label' => 'Devoluções', 'url' => ['devolucao/index']],
                 ],
             ],
         ],

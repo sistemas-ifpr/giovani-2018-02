@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Reserva */
+/* @var $model app\models\Devolucao */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Reservas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Devolucaos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="reserva-view">
+<div class="devolucao-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Tem certeza que deseja excluir este registro?',
+                'confirm' => 'Tem certeza que deseja remover este item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -29,11 +29,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'veiculo',
-            'dataRes',
-            'locatario',
-            'dataBaixaRes',
-            'funcionario',
+            'dataHora',
+            'emprestimo',
         ],
     ]) ?>
 
